@@ -1,80 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: #0f1115;
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-    color: #e6e6e6;
     margin: 0;
-    padding: 40px;
-}
-
-/* Card */
-.log-card {
-    position: relative;
-    max-width: 520px;
-    margin: 24px auto;
-    background: #181b22;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.log-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
-}
-
-/* Accent bar */
-.log-accent {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 5px;
-    height: 100%;
-    background: linear-gradient(180deg, #b14cff, #ff4ce6);
-}
-
-/* Content */
-.log-content {
-    padding: 24px 28px;
-}
-
-.log-title {
-    margin: 0 0 18px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #ffffff;
-    letter-spacing: 0.3px;
-}
-
-/* Data list */
-.log-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.log-list li {
+    height: 100vh;
+    background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #f0f0f0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    justify-content: center;
+}
+
+.card {
+    background: #111;
+    padding: 48px;
+    border-radius: 18px;
+    text-align: center;
+    width: 340px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    margin-bottom: 12px;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+}
+
+p {
+    color: #9a9a9a;
     font-size: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 32px;
 }
 
-.log-list li:last-child {
-    border-bottom: none;
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #5f5fff, #9b5cff);
+    color: #fff;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.log-list span {
-    color: #a0a4ad;
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(120, 100, 255, 0.4);
 }
 
-.log-list code {
-    background: #11131a;
-    padding: 4px 8px;
-    border-radius: 6px;
-    color: #eaeaea;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13px;
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
