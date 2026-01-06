@@ -1,33 +1,80 @@
-/* i would reccomend you leave all of this as is, but im not your mother, i cant tell you what to not do. */
-body { 
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #1a1a1a; 
-}
-.container { 
-    max-width: 600px;
-    margin: 0 auto; 
-    padding: 50px; 
-}
-h1 {
-    font-size: 48px; 
-    color: #aaaaaa; 
-}
-p { 
-    font-size: 18px; 
-    color: #b4b4b4; 
-}
-.search-bar { 
-    margin: 20px 0; 
-}
-footer { 
-    margin-top: 50px; 
-    font-size: 14px; 
-    color: #cccccc; 
-}
-a:hover{
-    color: rgb(226, 226, 226);
-    text-decoration: none;
+body {
+    background: #0f1115;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: #e6e6e6;
+    margin: 0;
+    padding: 40px;
 }
 
+/* Card */
+.log-card {
+    position: relative;
+    max-width: 520px;
+    margin: 24px auto;
+    background: #181b22;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.log-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+}
+
+/* Accent bar */
+.log-accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #b14cff, #ff4ce6);
+}
+
+/* Content */
+.log-content {
+    padding: 24px 28px;
+}
+
+.log-title {
+    margin: 0 0 18px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+/* Data list */
+.log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.log-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.log-list li:last-child {
+    border-bottom: none;
+}
+
+.log-list span {
+    color: #a0a4ad;
+}
+
+.log-list code {
+    background: #11131a;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #eaeaea;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+}
